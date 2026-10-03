@@ -58,40 +58,32 @@ export const ProjectActions: React.FC<ProjectActionsProps> = ({
   return (
     <div className={cn("flex flex-wrap items-center gap-2.5 pt-1.5", className)}>
       {hasLive && (
-        <a
+        <Button
+          variant="primary"
+          size={size}
           href={liveUrl}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Open live demo for ${projectTitle}`}
-          className="inline-flex"
+          rightIcon={<ExternalLink className="w-3.5 h-3.5" />}
+          className="shadow-accent"
         >
-          <Button
-            variant="primary"
-            size={size}
-            rightIcon={<ExternalLink className="w-3.5 h-3.5" />}
-            className="shadow-accent"
-          >
-            {liveDemoLabel}
-          </Button>
-        </a>
+          {liveDemoLabel}
+        </Button>
       )}
 
       {hasGithub && (
-        <a
+        <Button
+          variant="secondary"
+          size={size}
           href={githubUrl}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`View GitHub repository for ${projectTitle}`}
-          className="inline-flex"
+          leftIcon={<GithubIcon className="w-3.5 h-3.5" />}
         >
-          <Button
-            variant="secondary"
-            size={size}
-            leftIcon={<GithubIcon className="w-3.5 h-3.5" />}
-          >
-            {gitHubLabel}
-          </Button>
-        </a>
+          {gitHubLabel}
+        </Button>
       )}
     </div>
   );

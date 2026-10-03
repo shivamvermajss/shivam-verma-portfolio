@@ -5,3 +5,4 @@ export * from "./ProjectGrid";
 export * from "./ProjectCard";
 export * from "./ProjectVisual";
 export * from "./ProjectActions";
+export * from "./ImagifyMobileCard";

@@ -32,7 +32,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   brandDescriptor = portfolioData.personal.title || "FULL STACK DEVELOPER",
   availabilityText = portfolioData.personal.availability || "Available for Work",
   items = navigationItems,
-  resumeUrl = portfolioData.personal.resumeUrl,
+  resumeUrl = portfolioData.personal.resumeUrl || portfolioData.resume?.documentUrl || "/resume/Shivam_resume.pdf",
   onResumeClick,
   className,
 }) => {
@@ -50,11 +50,12 @@ export const Navbar: React.FC<NavbarProps> = ({
     scrollToSection("contact");
   };
 
-  const handleResume = () => {
+  const handleResume = (e?: React.MouseEvent) => {
     if (onResumeClick) {
+      if (e) e.preventDefault();
       onResumeClick();
     } else if (resumeUrl) {
-      window.open(resumeUrl, "_blank", "noopener,noreferrer");
+      window.open(resumeUrl, "_blank");
     } else {
       scrollToSection("contact");
     }
@@ -117,9 +118,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                 variant="primary"
                 size="sm"
                 isMagnetic
+                href={resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 leftIcon={<FileText className="w-3.5 h-3.5 opacity-90" />}
                 onClick={handleResume}
-                aria-label="View Resume"
+                aria-label="View Resume (PDF in new tab)"
                 className="rounded-full px-3.5 h-8 text-[12px] font-semibold bg-gradient-to-b from-indigo-500/90 to-indigo-600/90 hover:from-indigo-400 hover:to-indigo-500 text-white border border-white/25 shadow-[0_4px_16px_rgba(99,102,241,0.35),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-md transition-all duration-200"
               >
                 Resume

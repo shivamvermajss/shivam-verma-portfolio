@@ -75,11 +75,12 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
     triggerRef?.current?.focus();
   };
 
-  const handleResume = () => {
+  const handleResume = (e?: React.MouseEvent) => {
     if (onResumeClick) {
+      if (e) e.preventDefault();
       onResumeClick();
     } else if (resumeUrl) {
-      window.open(resumeUrl, "_blank", "noopener,noreferrer");
+      window.open(resumeUrl, "_blank");
     } else {
       onSelect("contact");
     }
@@ -189,10 +190,13 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
               <Button
                 variant="primary"
                 size="md"
+                href={resumeUrl || "/resume/Shivam_resume.pdf"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full justify-center min-h-[44px] rounded-2xl font-semibold bg-gradient-to-b from-indigo-500/90 to-indigo-600/90 hover:from-indigo-400 hover:to-indigo-500 text-white border border-white/25 shadow-[0_4px_16px_rgba(99,102,241,0.35),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-md"
                 leftIcon={<FileText className="w-4 h-4 opacity-90" />}
                 onClick={handleResume}
-                aria-label="View Resume"
+                aria-label="View Resume (PDF in new tab)"
               >
                 Resume
               </Button>

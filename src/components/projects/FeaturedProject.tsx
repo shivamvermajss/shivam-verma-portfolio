@@ -95,7 +95,7 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
           </div>
         </div>
 
-        {/* Two-Column Grid: Content (Left) & Flagship Browser Visual (Right) */}
+        {/* Two-Column Grid: Content (Left) & Flagship Mobile Device Showcase Visual (Right) */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left Column: Project Details & Technical Architecture */}
           <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
@@ -198,7 +198,7 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
             />
           </div>
 
-          {/* Right Column: Dominant Flagship Browser Mockup Visual */}
+          {/* Right Column: Dominant Flagship Mobile Showcase Visual */}
           <div className="lg:col-span-6 w-full flex justify-center">
             <ProjectVisual
               projectId={project.id}

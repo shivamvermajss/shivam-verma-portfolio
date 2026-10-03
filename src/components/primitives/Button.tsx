@@ -16,6 +16,10 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   spotlightColor?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  href?: string;
+  target?: string;
+  rel?: string;
+  download?: boolean | string;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -34,6 +38,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       leftIcon,
       rightIcon,
       disabled,
+      href,
+      target,
+      rel,
+      download,
       ...props
     },
     ref
@@ -62,19 +70,16 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const isSpotlightActive = enableSpotlight && !disabled && (variant === "primary" || variant === "secondary");
 
-    const innerButton = (
-      <button
-        ref={ref}
-        disabled={disabled}
-        className={cn(
-          "relative inline-flex items-center justify-center font-medium transition-all duration-200 ease-out outline-none select-none cursor-pointer overflow-hidden",
-          "hover:scale-[1.02] disabled:opacity-50 disabled:pointer-events-none disabled:transform-none",
-          sizeClasses[size],
-          variantClasses[variant],
-          className
-        )}
-        {...props}
-      >
+    const commonClasses = cn(
+      "relative inline-flex items-center justify-center font-medium transition-all duration-200 ease-out outline-none select-none cursor-pointer overflow-hidden",
+      "hover:scale-[1.02] disabled:opacity-50 disabled:pointer-events-none disabled:transform-none",
+      sizeClasses[size],
+      variantClasses[variant],
+      className
+    );
+
+    const innerContent = (
+      <>
         {isSpotlightActive && (
           <Spotlight
             size={spotlightSize}
@@ -88,6 +93,44 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {leftIcon && <span className="relative z-10 inline-flex shrink-0">{leftIcon}</span>}
         <span className="relative z-10">{children}</span>
         {rightIcon && <span className="relative z-10 inline-flex shrink-0">{rightIcon}</span>}
+      </>
+    );
+
+    if (href) {
+      const anchorElement = (
+        <a
+          href={href}
+          target={target}
+          rel={rel}
+          download={download}
+          className={commonClasses}
+          onClick={props.onClick as any}
+          aria-label={props["aria-label"]}
+          tabIndex={disabled ? -1 : undefined}
+        >
+          {innerContent}
+        </a>
+      );
+
+      if (isMagnetic && !disabled) {
+        return (
+          <Magnetic strength={magneticStrength} maxOffset={magneticMaxOffset}>
+            {anchorElement}
+          </Magnetic>
+        );
+      }
+
+      return anchorElement;
+    }
+
+    const innerButton = (
+      <button
+        ref={ref}
+        disabled={disabled}
+        className={commonClasses}
+        {...props}
+      >
+        {innerContent}
       </button>
     );
 

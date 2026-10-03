@@ -25,6 +25,8 @@ import {
   ExternalLink,
 } from "lucide-react";
 
+import { ImagifyMobileCard } from "./ImagifyMobileCard";
+
 export interface ProjectVisualProps {
   projectId: string;
   title: string;
@@ -42,6 +44,18 @@ export const ProjectVisual: React.FC<ProjectVisualProps> = ({
   className,
   isFeatured = false,
 }) => {
+  // Flagship Project Imagify: Render the custom mobile phone showcase card (Dunzo-inspired)
+  if (projectId === "imagify") {
+    return (
+      <ImagifyMobileCard
+        liveUrl={liveUrl}
+        title={title}
+        category={category}
+        className={className}
+      />
+    );
+  }
+
   // Format clean display URL without inventing domains
   const displayUrl = liveUrl
     ? liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")
