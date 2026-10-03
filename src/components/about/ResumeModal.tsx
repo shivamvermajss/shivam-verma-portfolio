@@ -164,17 +164,18 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                 onClick={onClose}
                 aria-label="Close resume"
                 className={cn(
-                  "w-10 h-10 sm:w-9 sm:h-9 rounded-xl shrink-0",
+                  "w-9 h-9 rounded-full shrink-0",
                   "flex items-center justify-center",
-                  "text-[#71717A] hover:text-white",
-                  "bg-white/[0.04] hover:bg-white/[0.09] border border-white/[0.08] hover:border-white/[0.18]",
+                  "text-neutral-300 hover:text-white",
+                  "bg-white/[0.08] hover:bg-white/[0.15] border border-white/[0.14] border-t-white/[0.28]",
+                  "backdrop-blur-xl shadow-[0_2px_8px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)]",
                   "active:scale-[0.95]",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500",
-                  "transition-all duration-150 cursor-pointer",
+                  "transition-all duration-200 cursor-pointer",
                   prefersReducedMotion && "transition-none"
                 )}
               >
-                <X className="w-4.5 h-4.5" aria-hidden="true" />
+                <X className="w-4 h-4" aria-hidden="true" />
               </button>
             </div>
 
@@ -200,7 +201,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
 
                 {/* Left: Compact document metadata */}
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-6 h-6 rounded-lg bg-white/[0.04] border border-white/[0.07] flex items-center justify-center shrink-0">
+                  <div className="w-6 h-6 rounded-full bg-white/[0.06] border border-white/[0.10] flex items-center justify-center shrink-0">
                     <FileText className="w-3 h-3 text-indigo-400/80" aria-hidden="true" />
                   </div>
                   <div className="min-w-0">
@@ -214,7 +215,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                 </div>
 
                 {/* Right: Action buttons — stacked on mobile, inline on sm+ */}
-                <div className="flex flex-col xs:flex-row sm:flex-row items-stretch xs:items-center sm:items-center gap-2 w-full sm:w-auto">
+                <div className="flex flex-col xs:flex-row sm:flex-row items-stretch xs:items-center sm:items-center gap-2.5 w-full sm:w-auto">
 
                   {/* Secondary: Open in New Tab */}
                   <a
@@ -224,8 +225,8 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                     aria-label="Open resume in a new browser tab"
                     className={cn(
                       actionLinkBase,
-                      "text-[#A1A1AA] bg-white/[0.04] border border-white/[0.1]",
-                      "hover:bg-indigo-500/10 hover:border-indigo-500/30 hover:text-indigo-200",
+                      "rounded-full px-4.5 text-white bg-white/[0.08] hover:bg-white/[0.14] border border-white/[0.14] border-t-white/[0.28]",
+                      "backdrop-blur-xl backdrop-saturate-[180%] shadow-[0_4px_16px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)]",
                       "active:scale-[0.97]",
                       // On mobile, stretch full width; sm+ auto-width
                       "w-full xs:w-auto sm:w-auto"
@@ -242,10 +243,12 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                     aria-label={`Download ${downloadFilename}`}
                     className={cn(
                       actionLinkBase,
-                      "text-white bg-indigo-600 border border-indigo-500/80",
-                      "hover:bg-indigo-500 hover:border-indigo-400",
+                      "rounded-full px-5 text-white",
+                      "bg-gradient-to-b from-indigo-500/85 via-indigo-600/90 to-purple-600/90",
+                      "border border-white/25 border-t-white/40",
+                      "shadow-[0_4px_18px_rgba(99,102,241,0.35),inset_0_1px_1px_rgba(255,255,255,0.45)]",
+                      "backdrop-blur-xl backdrop-saturate-150 hover:brightness-110",
                       "active:scale-[0.97]",
-                      "shadow-[0_0_16px_rgba(99,102,241,0.25)]",
                       "w-full xs:w-auto sm:w-auto"
                     )}
                   >

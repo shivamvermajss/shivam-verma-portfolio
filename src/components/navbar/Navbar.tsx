@@ -73,14 +73,14 @@ export const Navbar: React.FC<NavbarProps> = ({
           className
         )}
       >
-        {/* Floating Pill Outer Glass Shell */}
+        {/* Floating Pill Outer Glass Shell — Apple Glassmorphism Look */}
         <div
           className={cn(
-            "relative flex items-center justify-between px-3.5 py-2 md:px-4 md:py-2.5 rounded-full border transition-all duration-300",
-            "glass-01",
+            "relative flex items-center justify-between px-3 py-1.5 md:px-3.5 md:py-2 rounded-full transition-all duration-300",
+            "backdrop-blur-2xl backdrop-saturate-[180%]",
             isScrolled
-              ? "bg-[rgba(10,10,14,0.85)] border-white/[0.12] shadow-[0_12px_36px_-6px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.14)] backdrop-blur-2xl"
-              : "bg-[rgba(14,14,19,0.65)] border-white/[0.08] shadow-[0_8px_24px_-4px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl"
+              ? "bg-[rgba(10,10,16,0.65)] border border-white/[0.14] border-t-white/[0.24] shadow-[0_20px_40px_-12px_rgba(0,0,0,0.7),inset_0_1px_1px_0_rgba(255,255,255,0.22),inset_0_0_0_1px_rgba(255,255,255,0.04)]"
+              : "bg-[rgba(15,15,24,0.40)] border border-white/[0.12] border-t-white/[0.22] shadow-[0_12px_32px_-8px_rgba(0,0,0,0.5),inset_0_1px_1px_0_rgba(255,255,255,0.20),inset_0_0_0_1px_rgba(255,255,255,0.03)]"
           )}
         >
           {/* Left Zone: Brand / Monogram */}
@@ -117,10 +117,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 variant="primary"
                 size="sm"
                 isMagnetic
-                leftIcon={<FileText className="w-3.5 h-3.5" />}
+                leftIcon={<FileText className="w-3.5 h-3.5 opacity-90" />}
                 onClick={handleResume}
                 aria-label="View Resume"
-                className="shadow-accent"
+                className="rounded-full px-3.5 h-8 text-[12px] font-semibold bg-gradient-to-b from-indigo-500/90 to-indigo-600/90 hover:from-indigo-400 hover:to-indigo-500 text-white border border-white/25 shadow-[0_4px_16px_rgba(99,102,241,0.35),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-md transition-all duration-200"
               >
                 Resume
               </Button>

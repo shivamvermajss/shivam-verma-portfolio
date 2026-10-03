@@ -39,26 +39,26 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const sizeClasses = {
-      sm: "h-9 px-4 text-xs gap-1.5 rounded-[12px]",
-      md: "h-11 px-6 text-sm gap-2 rounded-[14px]",
-      lg: "h-13 px-8 text-base gap-2.5 rounded-[16px]",
+      sm: "h-9 px-4 text-xs gap-1.5 rounded-full font-medium tracking-tight",
+      md: "h-11 px-5.5 text-sm gap-2 rounded-full font-semibold tracking-tight",
+      lg: "h-12.5 px-7 text-[15px] gap-2.5 rounded-full font-semibold tracking-tight",
     };
 
     const variantClasses = {
       primary:
-        "gradient-primary text-white shadow-accent hover:brightness-105 active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070709]",
+        "bg-gradient-to-b from-indigo-500/85 via-indigo-600/90 to-purple-600/90 hover:from-indigo-400/90 hover:to-indigo-500/95 text-white border border-white/25 border-t-white/40 shadow-[0_4px_20px_rgba(99,102,241,0.35),inset_0_1px_1px_rgba(255,255,255,0.45),inset_0_-1px_1px_rgba(0,0,0,0.2)] backdrop-blur-xl backdrop-saturate-150 hover:shadow-[0_6px_28px_rgba(99,102,241,0.5),inset_0_1px_1.5px_rgba(255,255,255,0.6)] active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070709]",
       secondary:
-        "glass-01 text-[#F5F5F7] border border-[rgba(255,255,255,0.12)] hover:border-[rgba(255,255,255,0.25)] hover:bg-[rgba(255,255,255,0.06)] active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-indigo-500",
+        "bg-white/[0.08] hover:bg-white/[0.14] text-white border border-white/[0.14] border-t-white/[0.28] shadow-[0_4px_18px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.25),inset_0_0_0_1px_rgba(255,255,255,0.03)] backdrop-blur-2xl backdrop-saturate-[180%] hover:border-white/[0.30] hover:shadow-[0_6px_24px_rgba(0,0,0,0.45),inset_0_1px_1.5px_rgba(255,255,255,0.35)] active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-indigo-500",
       ghost:
-        "text-[#A1A1AA] hover:text-[#F5F5F7] hover:bg-[rgba(255,255,255,0.05)] active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-indigo-500",
-      pill: "glass-01 text-[#F5F5F7] rounded-full border border-[rgba(255,255,255,0.12)] hover:border-indigo-500/50 hover:bg-indigo-500/10 active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-indigo-500",
+        "text-neutral-300 hover:text-white hover:bg-white/[0.08] active:bg-white/[0.14] backdrop-blur-md rounded-full active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-indigo-500",
+      pill: "bg-white/[0.08] hover:bg-white/[0.14] text-white rounded-full border border-white/[0.14] border-t-white/[0.28] shadow-[0_4px_18px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.25)] backdrop-blur-2xl backdrop-saturate-[180%] hover:border-indigo-400/40 hover:bg-indigo-500/10 active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-indigo-500",
     };
 
     const defaultSpotlightColor =
       spotlightColor ??
       (variant === "primary"
-        ? "rgba(255, 255, 255, 0.16)"
-        : "rgba(99, 102, 241, 0.16)");
+        ? "rgba(255, 255, 255, 0.20)"
+        : "rgba(99, 102, 241, 0.18)");
 
     const isSpotlightActive = enableSpotlight && !disabled && (variant === "primary" || variant === "secondary");
 

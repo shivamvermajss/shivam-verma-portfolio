@@ -117,12 +117,13 @@ export const CredentialsGrid: React.FC<CredentialsGridProps> = ({
                   aria-pressed={isActive}
                   onClick={() => setActiveFilter(filter.id)}
                   className={cn(
-                    "relative px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium whitespace-nowrap select-none transition-all duration-200 cursor-pointer outline-none",
+                    "relative px-4 py-1.5 rounded-full text-xs font-mono font-medium whitespace-nowrap select-none transition-all duration-200 cursor-pointer outline-none",
+                    "backdrop-blur-xl backdrop-saturate-[180%]",
                     "focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070709]",
                     "active:scale-[0.97]",
                     isActive
-                      ? "bg-indigo-500/20 text-white border border-indigo-500/40 shadow-accent font-semibold"
-                      : "glass-01 text-[#A1A1AA] border-white/[0.07] hover:border-white/[0.18] hover:text-[#F5F5F7] hover:bg-white/[0.05]"
+                      ? "bg-white/[0.14] text-white border border-white/[0.22] shadow-[0_2px_10px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.3)] font-semibold"
+                      : "bg-white/[0.05] text-neutral-300 border border-white/[0.10] hover:border-white/[0.22] hover:text-white hover:bg-white/[0.10]"
                   )}
                 >
                   <span className="flex items-center gap-1.5">
@@ -130,10 +131,10 @@ export const CredentialsGrid: React.FC<CredentialsGridProps> = ({
                     {isAll && (
                       <span
                         className={cn(
-                          "px-1.5 py-0.2 rounded-md text-[10px] font-mono",
+                          "px-1.5 py-0.2 rounded-full text-[10px] font-mono",
                           isActive
-                            ? "bg-indigo-500/30 text-indigo-200"
-                            : "bg-white/[0.06] text-[#71717A]"
+                            ? "bg-white/20 text-white"
+                            : "bg-white/[0.08] text-neutral-400"
                         )}
                       >
                         {credentialsData.length}

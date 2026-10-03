@@ -154,14 +154,14 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({
                 )}
               </div>
 
-              {/* Accessible Close Button */}
+              {/* Accessible Close Button — Apple Frosted Circle */}
               <button
                 ref={closeButtonRef}
                 onClick={onClose}
                 aria-label="Close credential preview"
-                className="p-2 rounded-xl text-[#A1A1AA] hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 cursor-pointer shrink-0"
+                className="w-9 h-9 rounded-full flex items-center justify-center text-neutral-300 hover:text-white bg-white/[0.08] hover:bg-white/[0.15] border border-white/[0.14] border-t-white/[0.28] backdrop-blur-xl shadow-[0_2px_8px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 cursor-pointer shrink-0"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 

@@ -5,7 +5,6 @@ import { motion } from "motion/react";
 import { NavLinkItem } from "./NavLinkItem";
 import { SPRING_PRESETS } from "@/lib/motion";
 import { useReducedMotion } from "@/hooks/useMediaQuery";
-
 import { NavItem } from "@/types/portfolio";
 
 export interface NavLinksProps {
@@ -26,7 +25,7 @@ export const NavLinks: React.FC<NavLinksProps> = ({
     <div
       role="list"
       onMouseLeave={() => setHoveredId(null)}
-      className="relative flex items-center gap-1 p-1 rounded-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)]"
+      className="relative flex items-center gap-0.5 p-1 rounded-full bg-black/25 border border-white/[0.08] backdrop-blur-md shadow-[inset_0_1px_2px_rgba(0,0,0,0.3)]"
     >
       {items.map((item) => {
         const isActive = activeId === item.id;
@@ -34,29 +33,29 @@ export const NavLinks: React.FC<NavLinksProps> = ({
 
         return (
           <div key={item.id} className="relative flex items-center justify-center">
-            {/* Active Pill Spring Indicator */}
+            {/* Smooth Shared Active Pill Layout Animation — Frosted Apple Glass Pill */}
             {isActive && (
               <motion.div
-                layoutId="active-nav-indicator"
+                layoutId="navbar-active-pill"
                 transition={
                   prefersReducedMotion
                     ? { duration: 0 }
                     : SPRING_PRESETS.responsive
                 }
-                className="absolute inset-0 rounded-full bg-white/[0.09] border border-white/[0.14] shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_2px_8px_rgba(0,0,0,0.4)] pointer-events-none"
+                className="absolute inset-0 rounded-full bg-white/[0.14] border border-white/[0.22] shadow-[0_2px_10px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.3)] backdrop-blur-md pointer-events-none"
               />
             )}
 
             {/* Hover Pill Indicator */}
             {isHovered && !isActive && (
               <motion.div
-                layoutId="hover-nav-indicator"
+                layoutId="navbar-hover-pill"
                 transition={
                   prefersReducedMotion
                     ? { duration: 0 }
                     : { type: "spring", stiffness: 450, damping: 35 }
                 }
-                className="absolute inset-0 rounded-full bg-white/[0.04] border border-white/[0.06] pointer-events-none"
+                className="absolute inset-0 rounded-full bg-white/[0.08] border border-white/[0.10] pointer-events-none"
               />
             )}
 

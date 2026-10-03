@@ -21,8 +21,8 @@ export const MobileNavToggle = React.forwardRef<HTMLButtonElement, MobileNavTogg
         aria-controls="mobile-nav-drawer"
         aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
         className={cn(
-          "relative flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-white/[0.05] border border-white/[0.08] hover:bg-white/[0.1] active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition-all duration-200 cursor-pointer select-none",
-          isOpen && "bg-white/[0.12] border-white/[0.2]",
+          "relative flex items-center justify-center w-9 h-9 min-w-[36px] min-h-[36px] rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-white/[0.15] active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] backdrop-blur-md transition-all duration-200 cursor-pointer select-none",
+          isOpen && "bg-white/[0.18] border-white/[0.28]",
           className
         )}
         {...props}

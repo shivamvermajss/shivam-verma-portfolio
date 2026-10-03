@@ -169,6 +169,33 @@
   background-clip: text;
 }
 
+@keyframes gradient-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-accent-shimmer {
+  background: linear-gradient(
+    90deg,
+    #F5F5F7 0%,
+    #818cf8 35%,
+    #c084fc 65%,
+    #F5F5F7 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shimmer 9s ease-in-out infinite;
+}
+
 .gradient-primary {
   background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
 }

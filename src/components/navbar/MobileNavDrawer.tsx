@@ -126,11 +126,11 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
                 : { opacity: 0, y: -12, scale: 0.98 }
             }
             transition={SPRING_PRESETS.responsive}
-            className="absolute top-20 left-4 right-4 max-w-lg mx-auto rounded-[24px] glass-03 p-5 sm:p-6 shadow-elevated border border-white/[0.12] overflow-hidden"
+            className="absolute top-18 left-3 right-3 max-w-lg mx-auto rounded-[28px] bg-[rgba(15,15,24,0.70)] backdrop-blur-2xl backdrop-saturate-[180%] p-5 sm:p-6 shadow-[0_24px_50px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.22)] border border-white/[0.14] border-t-white/[0.25] overflow-hidden"
           >
             {/* Header / Status section */}
             <div className="flex items-center justify-between pb-3">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[#71717A]">
+              <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-400">
                 Navigation
               </span>
               <LiveStatusPill
@@ -139,10 +139,10 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
               />
             </div>
 
-            <Divider className="my-2 opacity-40" />
+            <Divider className="my-2 opacity-30" />
 
             {/* Navigation Link List */}
-            <nav className="py-2 space-y-1" aria-label="Mobile Navigation">
+            <nav className="py-2 space-y-1.5" aria-label="Mobile Navigation">
               {items.map((item, index) => {
                 const isActive = activeId === item.id;
                 return (
@@ -163,10 +163,10 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
                       }}
                       aria-current={isActive ? "page" : undefined}
                       className={cn(
-                        "flex items-center justify-between px-4 py-3 min-h-[44px] rounded-xl text-base font-medium transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-indigo-500",
+                        "flex items-center justify-between px-4 py-3 min-h-[44px] rounded-2xl text-base font-medium transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-indigo-500",
                         isActive
-                          ? "bg-indigo-500/15 border border-indigo-500/30 text-white font-semibold shadow-accent"
-                          : "text-[#A1A1AA] hover:text-white hover:bg-white/[0.05]"
+                          ? "bg-white/[0.14] border border-white/[0.22] text-white font-semibold shadow-[0_2px_12px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.3)] backdrop-blur-md"
+                          : "text-neutral-300 hover:text-white hover:bg-white/[0.08]"
                       )}
                     >
                       <span>{item.label}</span>
@@ -182,15 +182,15 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
               })}
             </nav>
 
-            <Divider className="my-3 opacity-40" />
+            <Divider className="my-3 opacity-30" />
 
             {/* Resume Action CTA */}
             <div className="pt-1">
               <Button
                 variant="primary"
                 size="md"
-                className="w-full justify-center min-h-[44px]"
-                leftIcon={<FileText className="w-4 h-4" />}
+                className="w-full justify-center min-h-[44px] rounded-2xl font-semibold bg-gradient-to-b from-indigo-500/90 to-indigo-600/90 hover:from-indigo-400 hover:to-indigo-500 text-white border border-white/25 shadow-[0_4px_16px_rgba(99,102,241,0.35),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-md"
+                leftIcon={<FileText className="w-4 h-4 opacity-90" />}
                 onClick={handleResume}
                 aria-label="View Resume"
               >

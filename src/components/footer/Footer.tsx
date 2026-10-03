@@ -177,17 +177,18 @@ export const Footer: React.FC = () => {
               </ul>
             </div>
 
-            {/* Back to Top */}
+            {/* Back to Top — Apple Frosted Capsule */}
             <button
               type="button"
               onClick={handleBackToTop}
               aria-label="Scroll back to top of page"
               className={cn(
-                "group inline-flex items-center gap-2 self-start",
-                "text-xs font-mono font-semibold text-[#52525B]",
-                "hover:text-indigo-300",
-                "focus-visible:outline-none focus-visible:text-indigo-300 focus-visible:underline",
-                "transition-colors duration-150 cursor-pointer"
+                "group inline-flex items-center gap-2 px-4 py-2 rounded-full",
+                "text-xs font-mono font-semibold text-neutral-300 hover:text-white",
+                "bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.10] border-t-white/[0.22]",
+                "backdrop-blur-xl shadow-[0_2px_8px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)]",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500",
+                "transition-all duration-200 cursor-pointer active:scale-95"
               )}
             >
               <ArrowUp

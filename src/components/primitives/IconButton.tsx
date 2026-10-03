@@ -27,16 +27,20 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     ref
   ) => {
     const sizeClasses = {
-      sm: "w-8 h-8 rounded-[10px]",
-      md: "w-10 h-10 rounded-[12px]",
-      lg: "w-12 h-12 rounded-[14px]",
+      sm: "w-8 h-8 rounded-full text-xs",
+      md: "w-10 h-10 rounded-full text-sm",
+      lg: "w-12 h-12 rounded-full text-base",
     };
 
     const variantClasses = {
-      primary: "gradient-primary text-white shadow-accent hover:brightness-110",
-      secondary: "bg-[#13131A] text-[#F5F5F7] border border-[rgba(255,255,255,0.09)] hover:border-[rgba(255,255,255,0.18)]",
-      ghost: "text-[#A1A1AA] hover:text-[#F5F5F7] hover:bg-[rgba(255,255,255,0.06)]",
-      glass: "glass-01 text-[#F5F5F7] border border-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.2)] hover:bg-[rgba(255,255,255,0.08)]",
+      primary:
+        "bg-gradient-to-b from-indigo-500/85 via-indigo-600/90 to-purple-600/90 text-white border border-white/25 border-t-white/40 shadow-[0_4px_16px_rgba(99,102,241,0.35),inset_0_1px_1px_rgba(255,255,255,0.45)] backdrop-blur-xl hover:brightness-110",
+      secondary:
+        "bg-white/[0.08] hover:bg-white/[0.14] text-white border border-white/[0.14] border-t-white/[0.28] shadow-[0_4px_16px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)] backdrop-blur-2xl backdrop-saturate-[180%]",
+      ghost:
+        "text-neutral-300 hover:text-white hover:bg-white/[0.08] backdrop-blur-md rounded-full",
+      glass:
+        "bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/[0.12] border-t-white/[0.24] shadow-[0_2px_10px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.22)] backdrop-blur-xl",
     };
 
     const buttonElement = (

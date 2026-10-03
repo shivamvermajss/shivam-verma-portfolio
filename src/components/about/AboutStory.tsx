@@ -229,14 +229,14 @@ export const AboutStory: React.FC<AboutStoryProps> = ({
               onClick={() => onOpenResume(resumeTriggerRef.current ?? undefined)}
               aria-label="Open resume quick view"
               className={cn(
-                // Match Button size="md" height: h-10 = 40px
-                "inline-flex items-center gap-2 h-10 px-4 rounded-xl",
+                "inline-flex items-center gap-2 h-11 px-5 rounded-full",
                 "text-[13px] font-mono font-semibold tracking-wide",
-                "bg-white/[0.03] border border-white/[0.1] text-[#A1A1AA]",
-                "hover:bg-indigo-500/[0.08] hover:border-indigo-500/35 hover:text-indigo-200",
+                "bg-white/[0.08] hover:bg-white/[0.14] text-neutral-300 hover:text-white",
+                "border border-white/[0.14] border-t-white/[0.28]",
+                "backdrop-blur-xl backdrop-saturate-[180%] shadow-[0_4px_18px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)]",
                 "active:scale-[0.97]",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500",
-                "transition-all duration-150 cursor-pointer"
+                "transition-all duration-200 cursor-pointer"
               )}
             >
               <FileText className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />

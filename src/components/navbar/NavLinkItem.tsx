@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Magnetic } from "@/components/primitives/Magnetic";
-import { Spotlight } from "@/components/primitives/Spotlight";
 import { cn } from "@/lib/utils";
 
 export interface NavLinkItemProps {
@@ -30,29 +29,22 @@ export const NavLinkItem: React.FC<NavLinkItemProps> = ({
   };
 
   return (
-    <Magnetic strength={0.25} maxOffset={4} proximityRadius={20}>
-      <Spotlight
-        size={70}
-        color={isActive ? "rgba(99, 102, 241, 0.14)" : "rgba(255, 255, 255, 0.08)"}
-        opacity={0.65}
-        className="rounded-full"
+    <Magnetic strength={0.18} maxOffset={3} proximityRadius={18}>
+      <a
+        href={href}
+        onClick={handleClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        aria-current={isActive ? "page" : undefined}
+        className={cn(
+          "relative z-10 block px-3.5 py-1.5 rounded-full text-xs font-medium tracking-tight select-none transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-indigo-500",
+          isActive
+            ? "text-white font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+            : "text-neutral-300 hover:text-white"
+        )}
       >
-        <a
-          href={href}
-          onClick={handleClick}
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-          aria-current={isActive ? "page" : undefined}
-          className={cn(
-            "relative z-10 block px-3.5 py-1.5 rounded-full text-xs font-medium tracking-tight select-none transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-indigo-500",
-            isActive
-              ? "text-[#F5F5F7] font-semibold"
-              : "text-[#A1A1AA] hover:text-[#F5F5F7]"
-          )}
-        >
-          {label}
-        </a>
-      </Spotlight>
+        {label}
+      </a>
     </Magnetic>
   );
 };

@@ -159,18 +159,20 @@ export const ContactSection: React.FC = () => {
 
               {/* Actions row */}
               <div className="flex flex-wrap gap-2.5">
-                {/* Primary: Email me */}
+                {/* Primary: Email me — Apple VisionOS Luminous Button */}
                 <a
                   href={`mailto:${personal.email}`}
                   aria-label="Compose an email to Shivam Verma"
                   className={cn(
-                    "inline-flex items-center gap-2 h-10 px-4 rounded-xl",
+                    "inline-flex items-center gap-2 h-10 px-5 rounded-full",
                     "text-xs font-mono font-semibold text-white",
-                    "bg-indigo-600 border border-indigo-500/80",
-                    "hover:bg-indigo-500 hover:border-indigo-400",
+                    "bg-gradient-to-b from-indigo-500/85 via-indigo-600/90 to-purple-600/90",
+                    "border border-white/25 border-t-white/40",
+                    "shadow-[0_4px_18px_rgba(99,102,241,0.35),inset_0_1px_1px_rgba(255,255,255,0.45)]",
+                    "backdrop-blur-xl backdrop-saturate-150 hover:brightness-110",
                     "active:scale-[0.97]",
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300",
-                    "transition-all duration-150 shadow-[0_0_16px_rgba(99,102,241,0.25)]"
+                    "transition-all duration-200"
                   )}
                 >
                   <Mail className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
@@ -178,20 +180,20 @@ export const ContactSection: React.FC = () => {
                   <ArrowRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                 </a>
 
-                {/* Secondary: Copy email */}
+                {/* Secondary: Copy email — Apple Frosted Glass Button */}
                 <button
                   type="button"
                   onClick={handleCopyEmail}
                   aria-label={emailCopied ? "Email address copied" : "Copy email address to clipboard"}
                   className={cn(
-                    "inline-flex items-center gap-2 h-10 px-4 rounded-xl",
+                    "inline-flex items-center gap-2 h-10 px-5 rounded-full",
                     "text-xs font-mono font-semibold",
-                    "border transition-all duration-150",
+                    "backdrop-blur-xl backdrop-saturate-[180%] transition-all duration-200",
                     "active:scale-[0.97]",
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500",
                     emailCopied
-                      ? "text-emerald-300 bg-emerald-500/10 border-emerald-500/35"
-                      : "text-[#A1A1AA] bg-white/[0.04] border-white/[0.1] hover:bg-indigo-500/[0.08] hover:border-indigo-500/35 hover:text-indigo-200"
+                      ? "text-emerald-200 bg-emerald-500/15 border border-emerald-400/35 shadow-[0_2px_12px_rgba(34,197,94,0.2),inset_0_1px_1px_rgba(255,255,255,0.25)]"
+                      : "text-white bg-white/[0.08] hover:bg-white/[0.14] border border-white/[0.14] border-t-white/[0.28] shadow-[0_4px_16px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)]"
                   )}
                 >
                   {emailCopied ? (
