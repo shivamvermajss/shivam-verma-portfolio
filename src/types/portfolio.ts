@@ -30,6 +30,12 @@ export interface BentoSpanConfig {
   rowSpan?: 1 | 2 | 3;
 }
 
+export interface ProjectFeature {
+  title: string;
+  subtitle: string;
+  icon?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -41,6 +47,7 @@ export interface Project {
   technologies?: string[];
   capabilities?: string[];
   highlights?: string[];
+  keyFeatures?: ProjectFeature[];
   thumbnailUrl?: string;
   image?: string;
   demoUrl?: string;

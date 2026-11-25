@@ -65,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     <>
       <header
         role="banner"
-        className="fixed top-0 inset-x-0 z-50 bg-gradient-to-b from-[#09090b] via-[#09090b]/90 to-transparent pt-4 pb-3 pointer-events-none"
+        className="fixed top-0 inset-x-0 z-50 bg-gradient-to-b from-[#09090b] via-[#09090b]/95 to-transparent pt-4 pb-6 pointer-events-none"
       >
         <motion.nav
           role="navigation"
@@ -82,8 +82,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div
             className={cn(
               "relative flex items-center justify-between px-3 py-1.5 md:px-3.5 md:py-2 rounded-full transition-all duration-300",
-              "bg-[#0a0a0c]/85 backdrop-blur-md border border-white/10 shadow-[0_12px_36px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.14)]",
-              isScrolled && "bg-[#0a0a0c]/95 border-white/15 shadow-[0_16px_40px_rgba(0,0,0,0.95)]"
+              "bg-[#0a0a0c]/95 backdrop-blur-xl border border-white/10 shadow-[0_12px_36px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(255,255,255,0.14)]",
+              isScrolled && "bg-[#0a0a0c]/98 border-white/15 shadow-[0_16px_40px_rgba(0,0,0,0.95)]"
             )}
           >
             {/* Left Zone: Brand / Monogram */}

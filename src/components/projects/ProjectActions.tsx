@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/primitives/Button";
-import { ExternalLink, Code2 } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className }) => (
@@ -46,8 +46,7 @@ export const ProjectActions: React.FC<ProjectActionsProps> = ({
   const hasLive = Boolean(liveUrl);
   const resolvedGithubUrl = githubUrl || DEFAULT_GITHUB_URL;
 
-  // Projects with no Live URL (e.g., QuickChat & Smart Meet):
-  // Primary clickable View GitHub CTA + subtle clickable Source Available pill button for symmetry
+  // Projects without a live demo URL render the clean primary View GitHub button only
   if (!hasLive) {
     return (
       <div className={cn("flex flex-wrap items-center gap-2.5", className)}>
@@ -62,19 +61,6 @@ export const ProjectActions: React.FC<ProjectActionsProps> = ({
           className="shadow-accent font-sans"
         >
           {gitHubLabel}
-        </Button>
-
-        <Button
-          variant="ghost"
-          size={size}
-          href={resolvedGithubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`View source code for ${projectTitle}`}
-          leftIcon={<Code2 className="w-3.5 h-3.5 text-indigo-400" />}
-          className="border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] text-gray-300 hover:text-white rounded-full font-sans"
-        >
-          Source Available
         </Button>
       </div>
     );

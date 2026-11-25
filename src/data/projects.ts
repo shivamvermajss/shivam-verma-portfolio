@@ -61,11 +61,11 @@ export const projectsData: Project[] = [
     tagline: "Real-Time Chat & Media Collaboration Platform",
     category: "Real-Time / Full Stack",
     description:
-      "Low-latency real-time chat application featuring bi-directional Socket.IO messaging, online presence tracking, image sharing via Cloudinary, and persistent conversation history.",
+      "Low-latency real-time messaging platform engineered with bi-directional Socket.IO event streams, live user online/offline presence tracking, instant Cloudinary media sharing, and persistent MongoDB conversation history.",
     image: "/quick chat.png",
     thumbnailUrl: "/quick chat.png",
-    tags: ["React", "Vite", "Node.js", "Express.js", "Socket.IO", "MongoDB", "Cloudinary"],
-    technologies: ["React.js", "Vite", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Socket.IO", "Cloudinary"],
+    tags: ["React", "Node.js", "Express.js", "MongoDB", "Socket.IO", "Cloudinary", "Tailwind CSS", "JWT"],
+    technologies: ["React", "Node.js", "Express.js", "MongoDB", "Socket.IO", "Cloudinary", "Tailwind CSS", "JWT"],
     capabilities: [
       "Authentication & Protected Sessions",
       "Bi-Directional Real-Time Messaging",
@@ -81,6 +81,28 @@ export const projectsData: Project[] = [
       "Cloudinary Media",
       "Message Status",
       "User Search",
+    ],
+    keyFeatures: [
+      {
+        title: "Bi-Directional WebSockets",
+        subtitle: "Instant message delivery & typing states via Socket.IO",
+        icon: "zap",
+      },
+      {
+        title: "Live Presence Engine",
+        subtitle: "Real-time online/offline user status synchronization",
+        icon: "radio",
+      },
+      {
+        title: "Media & File Pipeline",
+        subtitle: "Seamless image uploads & previews via Cloudinary",
+        icon: "image",
+      },
+      {
+        title: "JWT & MongoDB Store",
+        subtitle: "Encrypted auth sessions & persistent chat history",
+        icon: "shield",
+      },
     ],
     featured: false,
     priority: 2,
