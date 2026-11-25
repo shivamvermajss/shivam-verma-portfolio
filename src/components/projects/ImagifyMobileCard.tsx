@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import { Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface ImagifyMobileCardProps {
@@ -13,15 +12,9 @@ export interface ImagifyMobileCardProps {
 }
 
 export const ImagifyMobileCard: React.FC<ImagifyMobileCardProps> = ({
-  liveUrl = "https://imagify-coral.vercel.app",
   title = "Imagify",
-  category = "AI / SaaS",
   className,
 }) => {
-  const displayUrl = liveUrl
-    ? liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")
-    : "imagify-coral.vercel.app";
-
   return (
     <div
       className={cn(
@@ -38,13 +31,11 @@ export const ImagifyMobileCard: React.FC<ImagifyMobileCardProps> = ({
         aria-hidden="true"
       />
 
-      {/* Top Header Pill Bar — Only subtle URL pill */}
+      {/* Top Header Pill Bar — Standardized App Interface Badge */}
       <div className="relative z-20 w-full flex items-center justify-center mb-3 px-1">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/45 backdrop-blur-md border border-white/[0.08] shadow-inner max-w-full truncate">
-          <Lock className="w-3 h-3 text-emerald-400/90 shrink-0" />
-          <span className="font-sans text-xs text-gray-300 tracking-normal truncate">
-            {displayUrl}
-          </span>
+        <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-gray-300 text-xs font-sans px-3 py-1 rounded-full">
+          <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
+          <span>App Interface</span>
         </div>
       </div>
 

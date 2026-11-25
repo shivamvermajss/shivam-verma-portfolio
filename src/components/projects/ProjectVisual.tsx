@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Lock, Layers } from "lucide-react";
+import { Layers } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ImagifyMobileCard } from "./ImagifyMobileCard";
 
@@ -23,7 +23,7 @@ const PROJECT_SCREENSHOTS: Record<
 > = {
   quickchat: {
     src: "/quick chat.png",
-    imageClass: "object-cover object-top scale-[1.05] origin-top",
+    imageClass: "object-cover object-top scale-[1.04] origin-top",
   },
   staysphere: {
     src: "/staysphere.png",
@@ -31,15 +31,15 @@ const PROJECT_SCREENSHOTS: Record<
   },
   threadly: {
     src: "/threadly.png",
-    imageClass: "object-cover object-center scale-[1.08]",
+    imageClass: "object-cover object-center scale-[1.03]",
   },
   "youtube-watch-party": {
     src: "/youtube watch party.png",
-    imageClass: "object-cover object-center scale-[1.09]",
+    imageClass: "object-cover object-center scale-[1.095]",
   },
   "smart-meet": {
     src: "/smartmeet.png",
-    imageClass: "object-cover object-center scale-[1.05]",
+    imageClass: "object-cover object-center scale-[1.02]",
   },
   imagify: {
     src: "/imagify.png",
@@ -71,19 +71,15 @@ export const ProjectVisual: React.FC<ProjectVisualProps> = ({
   const screenshotMeta = PROJECT_SCREENSHOTS[projectId];
   const screenshotSrc = image || screenshotMeta?.src;
   const imageClass =
-    screenshotMeta?.imageClass ?? "object-cover object-center scale-[1.05]";
+    screenshotMeta?.imageClass ?? "object-cover object-center scale-[1.02]";
   const isStaySphere = projectId === "staysphere";
-
-  const displayUrl = liveUrl
-    ? liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")
-    : null;
 
   return (
     <div
       className={cn(
         "relative w-full bg-[#0d0d11] rounded-2xl p-4 flex flex-col items-center justify-center gap-3 overflow-hidden select-none group/mockup",
         "border border-white/[0.08]",
-        isLarge ? "min-h-[365px] h-full" : "min-h-[365px] sm:min-h-[375px]",
+        isLarge ? "min-h-[365px] h-full" : "h-[360px] sm:h-[370px]",
         className
       )}
     >
@@ -95,32 +91,21 @@ export const ProjectVisual: React.FC<ProjectVisualProps> = ({
         />
       )}
 
-      {/* Subtle URL Pill (live apps) or Minimal "App Interface" Label */}
+      {/* Standardized App Interface Badge Across All Cards */}
       <div className="relative z-20 flex items-center justify-center w-full shrink-0">
-        {displayUrl ? (
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/[0.08] max-w-[240px] truncate">
-            <Lock className="w-3 h-3 text-emerald-400/90 shrink-0" />
-            <span className="font-sans text-xs text-gray-300 truncate">
-              {displayUrl}
-            </span>
-          </div>
-        ) : (
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08]">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400/80 shrink-0" />
-            <span className="font-sans text-xs text-gray-400">
-              App Interface
-            </span>
-          </div>
-        )}
+        <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-gray-300 text-xs font-sans px-3 py-1 rounded-full">
+          <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
+          <span>App Interface</span>
+        </div>
       </div>
 
-      {/* Unified Centered Phone-Shaped Clipping Wrapper (No Double CSS Bezels) */}
+      {/* Unified Centered Phone-Shaped Clipping Wrapper (Identical Framing & Bezel Proportions) */}
       <div className="relative z-10 w-full flex items-center justify-center">
         {screenshotSrc ? (
           <div
             className={cn(
-              "relative mx-auto aspect-[9/19] rounded-[28px] overflow-hidden bg-[#09090b] shadow-2xl transition-transform duration-500 ease-out group-hover/mockup:scale-[1.02]",
-              isLarge ? "h-[290px] sm:h-[330px]" : "h-[290px] sm:h-[300px]"
+              "relative mx-auto aspect-[9/18] rounded-[28px] overflow-hidden bg-[#09090b] shadow-2xl transition-transform duration-500 ease-out group-hover/mockup:scale-[1.02]",
+              isLarge ? "h-[290px] sm:h-[315px]" : "h-[290px]"
             )}
           >
             <Image

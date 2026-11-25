@@ -138,12 +138,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   );
 
   const actionFooter = (
-    <div
-      className={cn(
-        "pt-4 border-t border-white/[0.06]",
-        !isLarge && "mt-auto"
-      )}
-    >
+    <div className="mt-auto pt-4 border-t border-white/[0.06]">
       <ProjectActions
         liveUrl={project.liveUrl || project.demoUrl}
         githubUrl={project.githubUrl}
@@ -172,11 +167,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <>
             {categoryBadge}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch flex-1">
-              {/* Left Column: Evenly Distributed Content & Bottom-Aligned CTA */}
-              <div className="md:col-span-7 flex flex-col justify-between h-full py-2 gap-5">
-                {titleAndDescription}
-                {featuresBlock}
-                {techStackBlock}
+              {/* Left Column: Tightly Grouped Content (gap-5) & Bottom-Aligned CTA */}
+              <div className="md:col-span-7 flex flex-col h-full py-2">
+                <div className="flex flex-col gap-5">
+                  {titleAndDescription}
+                  {featuresBlock}
+                  {techStackBlock}
+                </div>
                 {actionFooter}
               </div>
 
